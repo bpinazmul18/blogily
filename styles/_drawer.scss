@@ -1,0 +1,19 @@
+.ant-drawer-wrapper-body {
+  background: linear-gradient(135deg, #073642, #002b36);
+
+  .ant-drawer-header {
+    .ant-drawer-header-title {
+      .ant-drawer-close {
+        .anticon {
+          &.anticon-close {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-drawer-body {
+    padding: 0 !important;
+  }
+}
