@@ -1,8 +1,9 @@
 import Head from 'next/head'
-import { Layout } from 'antd'
+import { Col, Layout, Row } from 'antd'
 import React from 'react'
+import Header from '../components/Header'
 
-const { Header, Footer, Content } = Layout
+const { Footer, Content } = Layout
 
 const Home: React.FC = () => {
   return (
@@ -14,9 +15,13 @@ const Home: React.FC = () => {
       </Head>
 
       <Layout className="container">
-        <Header>Header</Header>
-        <Content>Content</Content>
-        <Footer>Footer</Footer>
+        <Header />
+        <Row justify="center" align="middle">
+          <Col xs={20} xxl={16}>
+            <Content>Content</Content>
+            <Footer>Footer</Footer>
+          </Col>
+        </Row>
       </Layout>
     </>
   )

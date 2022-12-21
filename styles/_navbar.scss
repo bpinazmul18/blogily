@@ -1,0 +1,47 @@
+.anticon {
+  &.anticon-menu {
+    color: #fff;
+    font-size: 3rem;
+    padding: 2rem 0;
+    line-height: 3.4rem;
+    font-weight: 400;
+    margin-right: 4rem;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    display: none !important;
+  }
+}
+
+.ant-menu {
+  background: linear-gradient(135deg, #073642, #002b36);
+
+  .ant-menu-item,
+  .ant-menu-item-active {
+    color: #93a1a1;
+    padding: 2rem 0;
+    font-size: 2rem;
+    line-height: 3.7rem;
+    font-weight: 400;
+    margin-right: 4rem;
+
+    &:hover {
+      background: linear-gradient(135deg, #002b36, #073642);
+      color: #fff !important;
+    }
+
+    &::after {
+      display: none !important;
+    }
+  }
+}
+
+.main-menu {
+  @media screen and (max-width: 767px) {
+    display: none !important;
+  }
+}
