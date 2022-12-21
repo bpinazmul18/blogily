@@ -1,11 +1,20 @@
 import Head from 'next/head'
 import { Col, Layout, Row } from 'antd'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Header from '../components/Header'
+import { fetchPosts } from '../store/posts'
+import { useDispatch } from 'react-redux'
+import { AppDispatch } from '../store/configureStore'
 
 const { Footer, Content } = Layout
 
 const Home: React.FC = () => {
+  const dispatch = useDispatch<AppDispatch>()
+
+  useEffect(() => {
+    dispatch(fetchPosts())
+  }, [])
+
   return (
     <>
       <Head>
