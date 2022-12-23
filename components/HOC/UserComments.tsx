@@ -6,7 +6,7 @@ import { RootState } from '../../store/configureStore'
 const UserComments = (props: any) => {
 
   useEffect(() => {
-    props.fetchComments()
+    props.fetchComments(props.userId)
   }, [])
 
   return <div>44 comments</div>
@@ -14,7 +14,7 @@ const UserComments = (props: any) => {
 }
 
 const mapStateToProps = (state: RootState, ownProps: any) => {
-    console.log(state)
+    // console.log(state)
     return {
     //   comments: state.entities.comments.list.find((comment) => user.id === ownProps.userId),
     }

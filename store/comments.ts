@@ -5,8 +5,8 @@ import { CommentsInitialStateProps } from '../models/Comments'
 // First, create the thunk
 export const fetchComments = createAsyncThunk(
   'comments/fetchComments',
-  async (_, thunkAPI) => {
-    const response = await comments()
+  async (userId: number, thunkAPI) => {
+    const response = await comments(userId)
     return response.data
   }
 )
@@ -32,7 +32,8 @@ const slice = createSlice({
 
     builder.addCase(fetchComments.fulfilled, (comments, action) => {
         comments.loading = false
-      comments.list.push(...action.payload)
+      // comments.list.push(action.payload)
+      console.log(action.payload)
     })
   },
 })

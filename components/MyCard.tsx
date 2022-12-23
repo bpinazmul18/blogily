@@ -17,7 +17,7 @@ const MyCard = ( { id, userId, title, description}: MyCardProps) => {
             <div className="author" style={{ display: 'flex', alignItems: 'center'}}>
                 <Avatar icon={<UserOutlined />} />
                 <UserHeader userId={userId}/>
-                <UserComments/>
+                <UserComments userId={userId}/>
                 {/* <h4 style={{ marginBottom: '0', marginLeft: '10px'}}>Nazmul Haque</h4> */}
             </div>
 

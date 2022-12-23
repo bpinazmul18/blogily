@@ -1,4 +1,4 @@
 
 import http from './http'
 
-export const comments = () => http.get(`/comments`)
+export const comments = (userId: number) => http.get(`/comments/${userId}`)
