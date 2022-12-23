@@ -19,7 +19,7 @@ const MyContent = ({ loading, blogs }: MyContentProps) => {
         return (
             <Col span={8} key={blog.id}>
                 <div className="card-wrapper">
-                    <Card id={blog.id} title={blog.title} description={blog.body}/>
+                    <Card id={blog.id} userId={blog.userId} title={blog.title} description={blog.body}/>
                 </div>
             </Col>
         )
@@ -30,7 +30,7 @@ const MyContent = ({ loading, blogs }: MyContentProps) => {
             <div className="container">
                 <Row>
                     <Col>
-                    <Title>BLog</Title>
+                    <Title>Blog</Title>
                     </Col>
                 </Row>
                 <hr />
