@@ -4,6 +4,7 @@ import { Avatar, Card } from 'antd';
 import { MyCardProps } from '../models/MyCard';
 import Link from 'next/link';
 import UserHeader from './HOC/UserHeader';
+import UserComments from './HOC/UserComments';
 
 const { Meta } = Card;
 
@@ -16,6 +17,7 @@ const MyCard = ( { id, userId, title, description}: MyCardProps) => {
             <div className="author" style={{ display: 'flex', alignItems: 'center'}}>
                 <Avatar icon={<UserOutlined />} />
                 <UserHeader userId={userId}/>
+                <UserComments/>
                 {/* <h4 style={{ marginBottom: '0', marginLeft: '10px'}}>Nazmul Haque</h4> */}
             </div>
 
