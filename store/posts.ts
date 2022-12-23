@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
 import { posts } from '../services/posts'
 import { PostInitialStateProps, Post } from '../models/Post'
 
@@ -27,7 +26,14 @@ const slice = createSlice({
   },
   extraReducers: (builder) => {
     // Add reducers for additional action types here, and handle loading state as needed
-    builder.addCase(fetchPosts.fulfilled, (posts, action: PayloadAction) => {})
+    builder.addCase(fetchPosts.pending, (posts) => {
+      posts.loading = true
+    })
+
+    builder.addCase(fetchPosts.fulfilled, (posts, action) => {
+      posts.loading = false
+      posts.list.push(action.payload)
+    })
   },
 })
 
