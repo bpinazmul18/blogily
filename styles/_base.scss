@@ -14,3 +14,37 @@ body {
   background: radial-gradient(circle, #073642 0%, #002b36);
   color: #93a1a1;
 }
+
+// Typography
+h1.ant-typography {
+  color: #93a1a1;
+  font-size: 5rem;
+  line-height: 5.2rem;
+  letter-spacing: -.2rem;
+}
+
+hr {
+  color: #93a1a1;
+}
+
+.container {
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 75rem;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 97rem;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 117rem;
+  }
+}
