@@ -1,14 +1,20 @@
 import React from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row, Col, Typography } from 'antd';
 
 const { Content} = Layout
+const { Title } = Typography;
 
 const MyContent = () => {
     return ( 
         <Content className="main-content">
             <div className="container">
                 <Row>
-                    <Col span={6}>col-6</Col>
+                    <Col>
+                    <Title>BLog</Title>
+                    </Col>
+                </Row>
+                <hr />
+                <Row>
                 </Row>
             </div>
         </Content>
