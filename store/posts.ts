@@ -1,6 +1,7 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, createSelector} from '@reduxjs/toolkit'
 import { posts } from '../services/posts'
-import { PostInitialStateProps, Post } from '../models/Post'
+import { PostInitialStateProps } from '../models/Post'
+import { RootState } from './configureStore'
 
 // First, create the thunk
 export const fetchPosts = createAsyncThunk(
@@ -13,7 +14,7 @@ export const fetchPosts = createAsyncThunk(
 
 // Initial state
 const initialState: PostInitialStateProps = {
-  loading: false,
+  loading: true,
   list: [],
   lastFetch: 0,
 }
@@ -32,9 +33,17 @@ const slice = createSlice({
 
     builder.addCase(fetchPosts.fulfilled, (posts, action) => {
       posts.loading = false
-      posts.list.push(action.payload)
+      posts.list.push(...action.payload)
     })
   },
 })
+
+// Selector
+const postsSelectors = (state: RootState) => state.entities.posts.list;
+
+export const getPosts = createSelector(
+  postsSelectors,
+  (posts) => posts
+);
 
 export default slice.reducer
