@@ -1,6 +1,7 @@
 export interface MyCardProps {
-    id: number,
-    userId: string,
-    title: string,
-    description: string,
+  id: number
+  userId: string
+  title: string
+  description: string
+  postId: number
 }

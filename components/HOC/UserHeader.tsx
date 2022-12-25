@@ -10,7 +10,7 @@ const UserHeader = (props: any) => {
 
   if (!props.user) return <div>NO User found!</div>
 
-  return <div className="header" style={{ marginBottom: '0', marginLeft: '10px'}}>{props.user.name}</div>
+  return <div className="header" style={{ marginBottom: '0', marginLeft: '10px', marginRight: '10px'}}>{props.user.name}</div>
 }
 
 const mapStateToProps = (state: RootState, ownProps: any) => {
