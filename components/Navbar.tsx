@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         <AppMenu />
       </div>
       <Drawer placement="left" onClose={onClose} open={open}>
-        <AppMenu isInline={true} />
+        <AppMenu />
       </Drawer>
     </>
   )
