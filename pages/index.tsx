@@ -8,12 +8,14 @@ import { AppDispatch } from '../store/configureStore'
 
 import Footer from '../components/MyFooter'
 import Content from '../components/MyContent'
+import { fetchComments } from '../store/comments'
 
 const Home: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>()
 
   useEffect(() => {
     dispatch(fetchPosts())
+    dispatch(fetchComments())
   }, [])
 
   return (
@@ -26,8 +28,8 @@ const Home: React.FC = () => {
 
       <Layout>
         <Header />
-          <Content/>
-        <Footer/>
+        <Content />
+        <Footer />
       </Layout>
     </>
   )

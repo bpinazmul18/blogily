@@ -1,12 +1,13 @@
-import { createSlice, createAsyncThunk} from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, createSelector} from '@reduxjs/toolkit'
 import { comments } from '../services/comments'
 import { CommentsInitialStateProps } from '../models/Comments'
+import { RootState } from './configureStore'
 
 // First, create the thunk
 export const fetchComments = createAsyncThunk(
   'comments/fetchComments',
-  async (userId: number, thunkAPI) => {
-    const response = await comments(userId)
+  async (_, thunkAPI) => {
+    const response = await comments()
     return response.data
   }
 )
@@ -32,10 +33,18 @@ const slice = createSlice({
 
     builder.addCase(fetchComments.fulfilled, (comments, action) => {
         comments.loading = false
-      // comments.list.push(action.payload)
-      console.log(action.payload)
+        comments.list.push(...action.payload)
     })
   },
 })
+
+// Selector
+const commentsSelectors = (state: RootState) => state.entities.comments.list;
+
+export const getComments = (postId: number) => createSelector(
+  commentsSelectors,
+  (comments) => comments.filter((comment) => comment.postId === postId)
+);
+
 
 export default slice.reducer
