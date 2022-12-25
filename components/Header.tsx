@@ -5,7 +5,7 @@ import Navbar from './Navbar'
 const Header: React.FC = () => {
   return (
     <header>
-      <div className='container'>
+      <div className="container">
         <Navbar />
       </div>
     </header>
