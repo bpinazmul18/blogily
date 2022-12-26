@@ -10,4 +10,5 @@ export interface CommentsInitialStateProps {
   loading: boolean
   list: Comment[]
   lastFetch: number
+  error: unknown | string | null
 }
