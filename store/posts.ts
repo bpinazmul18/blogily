@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, createSelector} from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit'
 import { posts } from '../services/posts'
 import { PostInitialStateProps } from '../models/Post'
 import { RootState } from './configureStore'
@@ -7,8 +7,12 @@ import { RootState } from './configureStore'
 export const fetchPosts = createAsyncThunk(
   'posts/fetchPosts',
   async (_, thunkAPI) => {
-    const response = await posts()
-    return response.data
+    try {
+      const response = await posts()
+      return response.data
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue(error.message)
+    }
   }
 )
 
@@ -17,6 +21,7 @@ const initialState: PostInitialStateProps = {
   loading: true,
   list: [],
   lastFetch: 0,
+  error: null,
 }
 
 const slice = createSlice({
@@ -35,15 +40,17 @@ const slice = createSlice({
       posts.loading = false
       posts.list.push(...action.payload)
     })
+
+    builder.addCase(fetchPosts.rejected, (comments, action) => {
+      comments.loading = false
+      comments.error = action.payload
+    })
   },
 })
 
 // Selector
-const postsSelectors = (state: RootState) => state.entities.posts.list;
+const postsSelectors = (state: RootState) => state.entities.posts.list
 
-export const getPosts = createSelector(
-  postsSelectors,
-  (posts) => posts
-);
+export const getPosts = createSelector(postsSelectors, (posts) => posts)
 
 export default slice.reducer
