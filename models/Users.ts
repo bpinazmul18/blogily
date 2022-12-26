@@ -32,4 +32,5 @@ export interface UsersInitialStateProps {
   loading: boolean
   list: User[]
   lastFetch: number
+  error: unknown | null | string
 }

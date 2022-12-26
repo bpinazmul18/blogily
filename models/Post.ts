@@ -9,4 +9,5 @@ export interface PostInitialStateProps {
   loading: boolean
   list: Post[]
   lastFetch: number
+  error: unknown | null | string
 }
